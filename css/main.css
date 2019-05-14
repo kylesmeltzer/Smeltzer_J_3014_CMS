@@ -1,0 +1,15 @@
+.hidden {
+    display: none;
+}
+
+header, section {
+    width: 800px;
+    margin: 0 auto;
+}
+
+.productBox {
+    width: 200px;
+    padding: 0 20px 0 20px;
+    float: left;
+    overflow: hidden;
+}
