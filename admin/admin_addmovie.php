@@ -31,11 +31,12 @@ if (isset($_POST['submit'])) {
         <p><?php echo $message; ?></p>
     <?php endif; ?>
     <form action="admin_addmovie.php" method="post" enctype="multipart/form-data">
-        <label for="image">Product Image:</label>
-        <input type="file" name="image" id="image" value=""><br><br>
-
+        
         <label for="title">Product Name:</label>
         <input type="text" name="title" id="title" value=""><br><br>
+
+        <label for="image">Product Image:</label>
+        <input type="file" name="image" id="image" value=""><br><br>
 
         <label for="cost">Cost: $</label>
         <input type="text" name="cost" id="cost" value=""><br><br>

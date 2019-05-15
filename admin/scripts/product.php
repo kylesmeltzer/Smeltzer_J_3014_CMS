@@ -25,7 +25,7 @@ function addMovie($prodPic, $prodName, $prodCost, $prodDesc, $category)
             throw new Exception('Failed to move copy file, check permission!');
         }
         //4. Adding entries to database (both tbl_products and tbl_mov_genre)
-        $insert_movie_query = 'INSERT INTO tbl_products(product_image, product_name, product_cost, product_desc) VALUES(:product_image, :product_name, :product_cost, :product_desc,)';
+        $insert_movie_query = 'INSERT INTO tbl_products(product_image, product_name, product_cost, product_desc) VALUES(:product_image, :product_name, :product_cost, :product_desc)';
 
         $insert_movie  = $pdo->prepare($insert_movie_query);
         $insert_result = $insert_movie->execute(

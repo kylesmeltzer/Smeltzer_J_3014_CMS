@@ -24,20 +24,18 @@
 	}
 
 
-	function editUser($id, $fname, $username, $password, $email){
+	function editProduct($id, $pname, $image, $desc, $cost){
 		include('connect.php');
 
-		$update_user_query = 'UPDATE tbl_user SET user_fname=:fname, user_name=:username,';
-		$update_user_query .=' user_pass=:password, user_email=:email';
-		$update_user_query .=' WHERE user_id = :id';
+		$update_user_query = 'UPDATE tbl_products SET product_name=:pname, product_image=:pimage, product_desc=:pdesc, product_cost=:pcost WHERE product_id = :id';
 
 		$update_user_set = $pdo->prepare($update_user_query);
 		$update_user_set->execute(
 			array(
-				':fname'=>$fname,
-				':username'=>$username,
-				':password'=>$password,
-				':email'=>$email,
+				':pname'=>$pname,
+				':pimage'=>$image,
+				':pdesc'=>$desc,
+				':pcost'=>$cost,
 				':id'=>$id
 			)
 		);
@@ -46,25 +44,26 @@
 			redirect_to('index.php');
 		}else{
 			//otherwise, return an error message
-			$message = 'Guess you got canned...';
+			$message = 'Product failed to update...';
 			return $message;
 		}
 	}
 
-	function deleteUser($id){
+	function deleteProduct($id){
 		include('connect.php');
-		$delete_user_query = 'DELETE FROM tbl_user WHERE user_id = :id';
-		$delete_user = $pdo->prepare($delete_user_query);
-		$delete_user->execute(
+		$delete_product_query = 'DELETE FROM tbl_products WHERE product_id = :id';
+		$delete_product = $pdo->prepare($delete_product_query);
+		$delete_product->execute(
 			array(
 				':id'=>$id
 			)
 		);
 
-		if($delete_user){
+		if($delete_product){
 			redirect_to('../index.php');
+			$message = 'Product deleted.';
 		}else{
-			$message = 'Not deleted yet..';
+			$message = 'Product not deleted.';
 			return $message;
 		}
 		
