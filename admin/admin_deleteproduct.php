@@ -2,8 +2,6 @@
     require_once('scripts/config.php');
     confirm_logged_in();
 
-    // TODO: pull all users from tbl_user
-    // save the result to be an array $users
     $tbl = 'tbl_products';
     $products = getAll($tbl);
 
@@ -40,7 +38,7 @@
                 <td><img class="productImg" width="50px" src="../img/<?php echo $product['product_image'];?>" alt="<?php echo $product['product_image'];?>"></td>
                 <td><?php echo $product['product_desc'];?></td>
                 <td><?php echo $product['product_cost'];?></td>
-                <td><a href="admin_edituser.php?id=<?php echo $product['product_id']; ?>">Edit</a></td>
+                <td><a href="admin_editproduct.php?id=<?php echo $product['product_id']; ?>">Edit</a></td>
                 <td><a href="scripts/caller.php?caller_id=delete&id=<?php echo $product['product_id']; ?>">Delete</a></td>
             </tr>
             <?php endwhile; ?>

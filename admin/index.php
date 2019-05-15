@@ -16,8 +16,8 @@
 	<nav>
 
 		<ul>
-			<li><a href="admin_addmovie.php">Add Product</a></li>
-			<li><a href="admin_deletemovie.php">Edit Products</a></li>
+			<li><a href="admin_addproduct.php">Add Product</a></li>
+			<li><a href="admin_deleteproduct.php">Edit Products</a></li>
 			<li><a href="scripts/caller.php?caller_id=logout">Sign Out</a></li>
 		</ul>
 
