@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 14, 2019 at 04:23 PM
+-- Generation Time: May 15, 2019 at 07:04 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `tbl_products` (
   `product_desc` text NOT NULL,
   `product_cost` decimal(6,2) NOT NULL,
   PRIMARY KEY (`product_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_products`
@@ -72,7 +72,7 @@ INSERT INTO `tbl_products` (`product_id`, `product_name`, `product_image`, `prod
 (1, 'Nike Men\'s Vaporfly 4 Flyknit Running Shoes', 'Nike_Mens_Vaporfly_4.png', 'Built to meet the exacting needs of world-class marathoners, Nike Vaporfly 4% Flyknit is designed for record-breaking speed. The Flyknit upper delivers breathable support, while the responsive foam and full-length plate provide incredible energy return for all 26.2.', '330.00'),
 (2, 'ASICS Men\'s Gel Quantum Infinity Running Shoes', 'ASICS_Mens_Gel_Quantum_Infinity.png', 'A revolution in ASICS Premier Cushioning technology with full-length gel midsole unique, premium upper material which balances the disruptive tooling distinctive design and coloring that flows from tooling to the upper.', '249.99'),
 (3, 'adidas Men\'s Ultraboost 19 Running Shoes', 'adidas_Mens_Ultraboost_19.png', 'The adidas Men’s Ultra Boost 19 Running Shoes combine comfort and performance to reinvent your run. They have a seamless adidas Primeknit 360 upper that’s engineered with motion weave technology to stretch and support your foot. Optimised Boost maximises energy return, and a 3D heel frame provides a locked-down fit that allows natural heel movement.', '250.00'),
-(4, 'ASICS Women\'s Gel Kayano 25 Running Shoes', 'ASICS_Womens_Gel_Kayano_25.png', 'The 25th anniversary of this legendary runner includes the next evolution of our ultra-lightweight FlyteFoam® cushioning: FlyteFoam® Propel and FlyteFoam® Lyte. These two cutting-edge technologies work together to deliver energized cushioning and exceptional comfort from heel to toe. Count on GEL-Kayano® 25 for a premium and reliable ride that stabilizes your foot and fits to perfection. Weight: 9.81. Heel Height: 24mm. Forefoot Height: 11mm.', '219.99'),
+(4, 'ASICS Women\'s Gel Kayano 25 Running Shoes', 'ASICS_Womens_Gel_Kayano_25.png', 'The 25th anniversary of this legendary runner includes the next evolution of our ultra-lightweight FlyteFoam® cushioning: FlyteFoam® Propel and FlyteFoam® Lyte. These two cutting-edge technologies work together to deliver energized cushioning and exceptional comfort from heel to toe. Count on GEL-Kayano® 25 for a premium and reliable ride that stabilizes your foot and fits to perfection. Weight: 9.81. Heel Height: 24mm. Forefoot Height: 11mm.', '219.90'),
 (5, 'Saucony Women\'s Everun Freedom ISO 2', 'Saucony_Womens_Everun_Freedom_ISO_2.png', 'However, whenever and wherever. That’s how you feel in the Saucony Women’s Everun Freedom ISO 2 Running Shoes, thanks to EVERUN cushioning and the debut of ISOKNIT. This women’s neutral running shoe takes the great sock-like feel of ISOFIT and combines it with an engineered performance knit-giving you support, breathability, and freedom of movement, so nothing can hold you back.', '199.99'),
 (6, 'Helly Hansen Women\'s Halifax Crew Hooded Jacket', 'Helly_Hansen_Womens_Halifax_Crew_Hooded_Jacket.png', 'Stay dry and warm on wet or windy days in the Helly Hansen Halifax women\'s hooded jacket. With breathable waterproofing and windproofing, this smart jacket features full seam sealing to prevent warm air escape. The water repellant finish provides an added barrier of protection, complemented by the durable 2-ply construction.', '159.99'),
 (7, 'Columbia Women\'s Hidden Skies Jacket', 'Columbia_Womens_Hidden_Skies_Jacket.png', 'Water-resistant fabric on the outside, and sections of soft jersey on the inside make this rain jacket a gem. A two-way zipper allows for more utility and range of motion while the hood can be stowed away when you don’t need it. Zip hand pockets keep valuables like keys, phone, and cards safe.', '159.99'),
@@ -114,16 +114,16 @@ INSERT INTO `tbl_products` (`product_id`, `product_name`, `product_image`, `prod
 DROP TABLE IF EXISTS `tbl_prod_categ`;
 CREATE TABLE IF NOT EXISTS `tbl_prod_categ` (
   `prod_categ_id` smallint(6) NOT NULL AUTO_INCREMENT,
-  `products_id` smallint(6) NOT NULL,
-  `categories_id` smallint(6) NOT NULL,
+  `product_id` smallint(6) NOT NULL,
+  `categ_id` smallint(6) NOT NULL,
   PRIMARY KEY (`prod_categ_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_prod_categ`
 --
 
-INSERT INTO `tbl_prod_categ` (`prod_categ_id`, `products_id`, `categories_id`) VALUES
+INSERT INTO `tbl_prod_categ` (`prod_categ_id`, `product_id`, `categ_id`) VALUES
 (1, 1, 1),
 (2, 2, 1),
 (3, 3, 1),
@@ -158,7 +158,12 @@ INSERT INTO `tbl_prod_categ` (`prod_categ_id`, `products_id`, `categories_id`) V
 (32, 32, 7),
 (33, 33, 7),
 (34, 34, 7),
-(35, 35, 7);
+(35, 35, 7),
+(36, 36, 5),
+(37, 38, 3),
+(38, 39, 5),
+(39, 40, 2),
+(40, 41, 6);
 
 -- --------------------------------------------------------
 
@@ -178,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
   `user_ip` varchar(250) NOT NULL,
   `user_new` tinyint(4) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_user`

@@ -7,7 +7,6 @@ $db_dsn = array(
 
 $dsn = 'mysql:'.http_build_query($db_dsn, '', ';');
 
-//This is the DB credentials
 $db_user = 'root';
 $db_pass = '';
 

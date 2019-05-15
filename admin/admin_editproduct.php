@@ -19,14 +19,13 @@
 		$desc = trim($_POST['product_desc']);
 		$cost = trim($_POST['product_cost']);
 
-		//Validation
-		// if(empty($pname) || empty($image) || empty($desc) || empty($cost)){
-		// 	$message = 'Please fill the required fields';
-		// }else{
-		// 	//Do the edit
+		if(empty($pname) || empty($image) || empty($desc) || empty($cost)){
+			$message = 'Please fill the required fields';
+		}else{
+			//Do the edit
 		$result = editProduct($id, $pname, $image, $desc, $cost);
 		$message = $result;
-		// }
+		}
 	}
 ?>
 <!doctype html>
@@ -37,26 +36,24 @@
 </head>
 <body>
 	<h2>Edit Product</h2>
-	<h3><a href="admin_deletemovie.php">Back to Edit Products</a></h3>
+	<h3><a href="admin_deleteproduct.php">Back to Edit Products</a></h3>
 	<?php if(!empty($message)):?>
 		<p><?php echo $message;?></p>
 	<?php endif;?>
 
 	<?php if($found_user = $found_user_set->fetch(PDO::FETCH_ASSOC)):?>
-		<form action="admin_edituser.php" method="post">
+		<form action="admin_editproduct.php?id=<?php echo $id;?>" method="post">
 			<label for="first-name">Product Name:</label>
-			<input type="text" id="pname" name="pname" value="<?php echo $found_user['product_name'];?>"><br><br>
+			<input type="text" id="pname" name="product_name" value="<?php echo $found_user['product_name'];?>"><br><br>
 
 			<label for="image">Product Image:</label>
-        	<input type="text" name="image" id="image" value="<?php echo $found_user['product_image'];?>"><br><br>
+        	<input type="text" name="product_image" id="image" value="<?php echo $found_user['product_image'];?>"><br><br>
 			
 			<label for="cost">Cost: $</label>
-        	<input type="text" name="cost" id="cost" value="<?php echo $found_user['product_cost'];?>"><br><br>
+        	<input type="text" name="product_cost" id="cost" value="<?php echo $found_user['product_cost'];?>"><br><br>
 
 			<label for="desc">Description:</label>
-        	<input name="desc" id="desc" value="<?php echo $found_user['product_desc'];?>"><br><br>
-
-			<label for="genlist">Product Category:</label><br><br>
+        	<input name="product_desc" id="desc" value="<?php echo $found_user['product_desc'];?>"><br><br>
 
 			<button type="submit" name="submit">Update Product Info</button>
 		</form>

@@ -10,9 +10,8 @@ if (isset($_POST['submit'])) {
     $prodName   = $_POST['title'];
     $prodCost    = $_POST['cost'];
     $prodDesc   = $_POST['desc'];
-    //UPDATE THIS ONE
     $category   = $_POST['genList'];
-    $result  = addMovie($prodPic, $prodName, $prodCost, $prodDesc, $category);
+    $result  = addProduct($prodPic, $prodName, $prodCost, $prodDesc, $category);
     $message = $result;
 }
 
@@ -30,7 +29,7 @@ if (isset($_POST['submit'])) {
     <?php if (!empty($message)): ?>
         <p><?php echo $message; ?></p>
     <?php endif; ?>
-    <form action="admin_addmovie.php" method="post" enctype="multipart/form-data">
+    <form action="admin_addproduct.php" method="post" enctype="multipart/form-data">
         
         <label for="title">Product Name:</label>
         <input type="text" name="title" id="title" value=""><br><br>
